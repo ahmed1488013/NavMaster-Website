@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavMaster</title>
+    <style>
+        /* Basic design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #2C3E50;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            transition: all 0.3s ease-in-out; /* Smooth animation */
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #E74C3C;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Hamburger design */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background-color: #2C3E50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+                transform: translateY(-100%); /* Initially off-screen */
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0); /* Show the menu */
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Logo</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger-icon">
+                &#9776;
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        // Toggle the hamburger menu
+        const hamburger = document.getElementById("hamburger-icon");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+    
+</body>
+</html>
